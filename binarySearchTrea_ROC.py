@@ -66,7 +66,7 @@ x_list = mlab.frange(xmin, xmax, dx)
  
 y_list = [rand() for i in x_list]
  
-N = 1000
+N = 1001
 index = range(N)
  
 first_tp = count_parameters(0)
@@ -75,12 +75,12 @@ for element in index:
 	res = count_parameters(element)
 	TPR = res[0]*100/first_tp[0]
 	FPR = (N - element - res[0])*100/(N - first_tp[0])
-	x_list2[element] = FPR
-	y_list2[element] = TPR
+	x_list[element] = FPR
+	y_list[element] = TPR
 	#print(TPR,FPR)
  
 pylab.ylabel('Sensitivity')
 pylab.xlabel('Specificity')
-pylab.axis([0,100,0,100])
-pylab.plot(x_list2,y_list2,'bs')
+pylab.axis([-1,101,-1,101])
+pylab.plot(x_list,y_list,'r')
 pylab.show()
